@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/koyaanisqatsi/Desktop/refactored-octo-spork/OOP/lab6/Animal.cpp
+Animal.h
+/Users/koyaanisqatsi/Desktop/refactored-octo-spork/OOP/lab6/Animal.h
+string
+-
+iostream
+-
+
+/Users/koyaanisqatsi/Desktop/refactored-octo-spork/OOP/lab6/Animal.h
+string
+-
+
+/Users/koyaanisqatsi/Desktop/refactored-octo-spork/OOP/lab6/main.cpp
+iostream
+-
+stdio.h
+-
+string
+/Users/koyaanisqatsi/Desktop/refactored-octo-spork/OOP/lab6/string
+

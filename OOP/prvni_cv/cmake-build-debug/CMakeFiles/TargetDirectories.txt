@@ -1,0 +1,3 @@
+/Users/koyaanisqatsi/CLionProjects/prvni_cv/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/koyaanisqatsi/CLionProjects/prvni_cv/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/koyaanisqatsi/CLionProjects/prvni_cv/cmake-build-debug/CMakeFiles/prvni_cv.dir
