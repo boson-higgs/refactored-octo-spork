@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stdio.h>
 #include "string"
+
 using namespace std;
 
 class Client
@@ -92,8 +93,6 @@ public:
     void AddInterest();
 };
 
-
-
 class CreditAccount : public Account
 {
 private:
@@ -126,6 +125,68 @@ public:
     }
 };
 
+
+
+class Ctverec
+{
+protected:
+    double a;
+public:
+    Ctverec(double a)
+    {
+        this->a = a;
+    }
+    virtual double Obvod()
+    {
+        return (4 * this->a);
+    }
+    virtual double Obsah()
+    {
+        return (this->a * this->a);
+    }
+};
+
+class Obdelnik : public Ctverec
+{
+protected:
+    double b;
+public:
+    Obdelnik(double a, double b) : Ctverec(a)
+    {
+        this->b = b;
+    }
+    double Obvod()
+    {
+        return ((2 * this->a) + (2 * this->b));
+    }
+    double Obsah()
+    {
+        return(this->a * this->b);
+    }
+};
+
+class Trojuhelnik : public Obdelnik
+{
+private:
+    double c;
+    double v;
+public:
+    Trojuhelnik(double a, double b, double c, double v) : Obdelnik (a,b)
+    {
+        this->c = c;
+        this->v = v;
+    }
+    double Obvod()
+    {
+        return (this->a + this->b + this->c);
+    }
+    double Obsah()
+    {
+        return ((this->v * this->a) / 2);
+    }
+};
+
+
 int main()
 {
     Client *o = new Client(0, "Smith");
@@ -141,6 +202,20 @@ int main()
     a = nullptr;
     delete ca;
     delete a;
+
+    cout << "************************************" << endl;
+
+    Ctverec *square = new Ctverec(2);
+    Obdelnik *rectangle = new Obdelnik(2, 8);
+    Trojuhelnik *triangle = new Trojuhelnik(2, 8, 3, 5);
+
+    cout << square->Obsah() << "   " << square->Obvod() << endl;
+    cout << rectangle->Obsah() << "   " << rectangle->Obvod() << endl;
+    cout << triangle->Obsah() << "   " << triangle->Obvod() << endl;
+
+    delete square;
+    delete rectangle;
+    delete triangle;
 
     return 0;
 }
