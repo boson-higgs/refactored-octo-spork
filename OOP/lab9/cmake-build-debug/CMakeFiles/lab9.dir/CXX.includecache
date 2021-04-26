@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/koyaanisqatsi/Desktop/refactored-octo-spork/OOP/lab9/main.cpp
+iostream
+-
+stdio.h
+-
+string
+/Users/koyaanisqatsi/Desktop/refactored-octo-spork/OOP/lab9/string
+
