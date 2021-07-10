@@ -1,0 +1,74 @@
+1)
+Funkce vyfiltruje z řetězce číslo. (Odebere všechny znaky, které nejsou číslo) Převede vyfiltrovaný řetězec na číslo a porovná s druhým parametrem. Pokud je nově vytvořené číslo větší vrátí 1, stejné 0 a menší tak vrátí -1. (lze využít CMOV)
+
+int filter_number_and_test( char * str_number, int test_number )
+{
+    char filtered[ 128 ];
+}
+
+2)
+Vytvořte funkci, která spočítá a vrátí nejčastěji použitý bílý znak (mezera, tabulátor či nový řádek) ve formátování asembler kodu. Využívejte CMOV instrukce místo podmíněných skoků - inkrementaci potřebného čítače můžeme realizovat následovně:
+
+spaces += c == ' ' ? 1 : 0
+Nalezení maxima ze tří proměnných můžeme poté nalézt pomocí:
+
+most_frequent_count = spaces > tabs ? spaces : tabs;
+most_frequent_char = spaces > tabs ? 32 /* mezera */ : 9 /* tab */;
+
+most_frequent_count = newline > most_frequent_count ? newline : most_frequent_count;
+most_frequent_char = newline > most_frequent_count ? 10 /* newline */ : most_frequent_char;
+Tabulátor má ASCII hodnotu 9, nový řádek 10 - nasm neumí literaly \t a \n.
+
+char asm_formatting_char(char* code) {
+  uint64_t spaces = 0;
+  uint64_t tabs = 0;
+  uint64_t newline = 0;
+  ...
+  
+  // a vratime nejcastejsi znak:
+  // return '\n';
+  // return ' ';
+  // return '\t';
+}
+
+char code[128] = "loop .loop\n\tmov al, [rdi + rcx]\n\t\tcmp al, 9\n\tjmp .loop\n";
+printf("%d\n", asm_frequent_char(code)); // 32
+
+3)
+Funkci předejte řetězec čísel. Pokud funkce v řetězci objeví pouze číslice 0 a 1 detekuje že se jedná o binární číslo a vrátí 1. Pokud funkce detekuje pouze číslice 0 až 9 jedná se o dekadické číslo a vrátí 2. Pokud funkce detekuje číslice 0-F jedná se o hexadecimální číslo a vrátí 3. Bude-li v řetězci znak který není číslo vrátí 0.
+
+char num_sys_detect( char *t_res )
+{
+ char l_digi[ 4 ];
+ ...
+}
+ ...
+char g_text0[]="110011";  //1
+char g_text1[]="123";     //2
+   char g_text2[]="9F";      //3
+char g_text3[]=" 110011"; //0
+
+4)
+Na vstupu funkce bude řetěze s maximálně třemi znaky 'd', 'm' a 'v' v jakémkoliv pořadí a jakémkoliv počtu <1,3>. Do lokální proměnné uložte dle zadaných znaků v zadaném pořadí pro 'd' číslice '0' až '9', pro 'm' malá písmena a pro 'v' písmena velká. Výsledek nakopírujte zpět do vstupního řetězce. Např. pro zadání "mdm" bude výsledek "abcdefghijklmnopqrstuvwxyz0123456789abcdefghijklmnopqrstuvwxyz". Pro zadání "dv" bude výsledek "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ".
+
+void posloupnosti( char *t_str_dmv )
+{
+ char l_tmp[ 128 ];
+ ...
+}
+
+ ...
+ char l_zadani[ 128 ] = "vmd";
+ posloupnosti( l_zadani );
+
+5)
+Funkci předejte řetězec s čísly 0 až 9. Funkce spočítá počet jednotlivých číslic. Počty bude ukládat do lokálních proměnných. Funkce vrátí číslo, které se v řetězci vyskytovalo nejvíce.
+
+char num_calc( char *t_res )
+{
+ char l_temp[ 9 ];
+ ...
+}
+ ...
+ char g_text[]="01234567899";
+ char g_res=num_calc( g_text ); //9
